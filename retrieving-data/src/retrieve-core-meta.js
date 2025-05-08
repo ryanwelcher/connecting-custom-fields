@@ -4,58 +4,58 @@
 import { useSelect } from '@wordpress/data';
 import { useEntityProp } from '@wordpress/core-data';
 import { store as editorStore } from '@wordpress/editor';
-import { SelectControl } from '@wordpress/components';
-import { useState } from 'react';
-import apiFetch from '@wordpress/api-fetch';
-import { addQueryArgs } from '@wordpress/url';
+import { TextControl, TextareaControl } from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
 
 const CoreMeta = () => {
-	const [ metaType, setMetaType ] = useState( 'meta' );
-	const { postType, postID } = useSelect( ( select ) => {
-		const post = select( editorStore ).getCurrentPost();
-		const postType = select( editorStore ).getCurrentPostType();
-
-		return {
-			postType,
-			postID: post?.id,
-		};
-	}, [] );
-	const [ coreMeta, updateCoreMeta ] = useEntityProp(
-		'postType',
-		postType,
-		metaType,
-		postID
+	const currentPostType = useSelect(
+		( select ) => select( editorStore ).getCurrentPostType(),
+		[]
 	);
 
-	apiFetch( {
-		path: addQueryArgs( '/pods/v1/pods', { return_type: 'full' } ),
-	} ).then( ( res ) => {
-		console.log( res );
-	} );
-	// apiFetch( {
-	// 	path: addQueryArgs( '/pods/v1/pods/22', { include_fields: true } ),
-	// } ).then( ( pods ) => {
-	// 	console.log( pods );
-	// } );
+	const [ meta, setMeta ] = useEntityProp(
+		'postType',
+		currentPostType,
+		'meta'
+	);
+
+	console.log( 'Meta:', meta );
 	return (
 		<>
-			<SelectControl
-				label="Meta to retrieve"
-				onChange={ ( newMeta ) => setMetaType( newMeta ) }
-				options={ [
-					{
-						label: 'Core',
-						value: 'meta',
-					},
-					{
-						label: 'ASCF',
-						value: 'acf',
-					},
-					{
-						label: 'Pods',
-						value: 'pods_message',
-					},
-				] }
+			<TextControl
+				label={ __( 'Author Name' ) }
+				value={ meta?.author_name }
+				onChange={ ( author_name ) =>
+					setMeta( { ...meta, author_name } )
+				}
+				__next40pxDefaultSize
+				__nextHasNoMarginBottom
+			/>
+			<TextControl
+				label={ __( 'Author Email' ) }
+				value={ meta?.author_email }
+				onChange={ ( author_email ) =>
+					setMeta( { ...meta, author_email } )
+				}
+				__next40pxDefaultSize
+				__nextHasNoMarginBottom
+			/>
+			<TextControl
+				label={ __( 'Author Title' ) }
+				value={ meta?.author_title }
+				onChange={ ( author_title ) =>
+					setMeta( { ...meta, author_title } )
+				}
+				__next40pxDefaultSize
+				__nextHasNoMarginBottom
+			/>
+
+			<TextareaControl
+				label={ __( 'Author Bio' ) }
+				value={ meta?.author_bio }
+				onChange={ ( author_bio ) =>
+					setMeta( { ...meta, author_bio } )
+				}
 				__next40pxDefaultSize
 				__nextHasNoMarginBottom
 			/>
