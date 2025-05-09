@@ -4,6 +4,7 @@
 import { registerPlugin } from '@wordpress/plugins';
 import { PluginDocumentSettingPanel } from '@wordpress/editor';
 import { TextControl, TextareaControl } from '@wordpress/components';
+import { useEntityProp } from '@wordpress/core-data';
 
 registerPlugin( 'simple-metabox-replacement', {
 	render: () => {
