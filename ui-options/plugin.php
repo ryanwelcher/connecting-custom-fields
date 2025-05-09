@@ -6,7 +6,7 @@
 
 // Enqueue getting-meta from a plugin.
 add_action(
-	'enqueue_block_editor_assets2',
+	'enqueue_block_editor_assets',
 	function () {
 		$assets_file = plugin_dir_path( __FILE__ ) . '/build/index.asset.php';
 
@@ -33,7 +33,7 @@ add_action(
 				'single'       => true,
 				'show_in_rest' => true,
 				'type'         => 'string',
-
+				
 			]
 		);
 		register_post_meta(

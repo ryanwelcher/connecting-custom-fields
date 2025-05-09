@@ -48,27 +48,3 @@ registerPlugin( 'retrieve-and-display-meta', {
 		);
 	},
 } );
-
-
-
-
-
-// Pods
-apiFetch( {
-	path: `/wp/v2/post/1`,
-	method: 'POST',
-	data: {
-		a_message_from_pods: 'Hello from Pods',
-	},
-} );
-
-// ASCF
-apiFetch( {
-	path: `/wp/v2/post/1`,
-	method: 'POST',
-	data: {
-		acf: {
-			message: 'Hi there from ASCF!',
-		},
-	},
-} );
