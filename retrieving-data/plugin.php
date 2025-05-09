@@ -33,6 +33,7 @@ add_action(
 				'single'       => true,
 				'show_in_rest' => true,
 				'type'         => 'string',
+				
 			]
 		);
 		register_post_meta(

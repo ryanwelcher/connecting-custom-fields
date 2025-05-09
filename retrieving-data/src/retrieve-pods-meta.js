@@ -1,63 +1,25 @@
 /**
  * WordPress Dependencies
  */
-import { useSelect } from '@wordpress/data';
-import { useEntityProp } from '@wordpress/core-data';
-import { store as editorStore } from '@wordpress/editor';
-import { SelectControl } from '@wordpress/components';
-import { useState } from 'react';
-import apiFetch from '@wordpress/api-fetch';
-import { addQueryArgs } from '@wordpress/url';
+import { TextControl } from '@wordpress/components';
 
-const CoreMeta = () => {
-	const [ metaType, setMetaType ] = useState( 'meta' );
-	const { postType, postID } = useSelect( ( select ) => {
-		const post = select( editorStore ).getCurrentPost();
-		const postType = select( editorStore ).getCurrentPostType();
+/**
+ * Internal dependencies
+ */
+import useUpdateNonCoreMeta from './useUpdateNonCoreMeta';
 
-		return {
-			postType,
-			postID: post?.id,
-		};
-	}, [] );
-	const [ coreMeta, updateCoreMeta ] = useEntityProp(
-		'postType',
-		postType,
-		metaType,
-		postID
+const PodsMeta = () => {
+	// Use the custom hook to manage the reading and saving of Pods meta.
+	const [ message, updateMessage ] = useUpdateNonCoreMeta(
+		'a_message_from_pods'
 	);
 
-	console.log( coreMeta );
-
-	// apiFetch( {
-	// 	path: addQueryArgs( '/pods/v1/pods', { return_type: 'full' } ),
-	// } ).then( ( res ) => {
-	// 	console.log( res );
-	// } );
-	// apiFetch( {
-	// 	path: addQueryArgs( '/pods/v1/pods/22', { include_fields: true } ),
-	// } ).then( ( pods ) => {
-	// 	console.log( pods );
-	// } );
 	return (
 		<>
-			<SelectControl
+			<TextControl
 				label="Meta to retrieve"
-				onChange={ ( newMeta ) => setMetaType( newMeta ) }
-				options={ [
-					{
-						label: 'Core',
-						value: 'meta',
-					},
-					{
-						label: 'ASCF',
-						value: 'acf',
-					},
-					{
-						label: 'Pods',
-						value: 'pods_message',
-					},
-				] }
+				value={ message }
+				onChange={ ( message ) => updateMessage( message ) }
 				__next40pxDefaultSize
 				__nextHasNoMarginBottom
 			/>
@@ -65,4 +27,4 @@ const CoreMeta = () => {
 	);
 };
 
-export default CoreMeta;
+export default PodsMeta;

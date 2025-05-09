@@ -12,14 +12,11 @@ const CoreMeta = () => {
 		( select ) => select( editorStore ).getCurrentPostType(),
 		[]
 	);
-
 	const [ meta, setMeta ] = useEntityProp(
 		'postType',
 		currentPostType,
 		'meta'
 	);
-
-	console.log( 'Meta:', meta );
 	return (
 		<>
 			<TextControl

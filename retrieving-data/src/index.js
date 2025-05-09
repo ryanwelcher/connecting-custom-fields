@@ -20,19 +20,26 @@ import { PanelBody } from '@wordpress/components';
  */
 import CoreMeta from './retrieve-core-meta';
 import AscfMeta from './retrieve-ascf-meta';
+import PodsMeta from './retrieve-pods-meta';
 
 registerPlugin( 'retrieve-and-display-meta', {
 	render: () => {
 		return (
 			<>
 				<PluginDocumentSettingPanel
-					name="retrieving-meta"
+					name="core-meta"
 					title={ __( 'Core Meta' ) }
 				>
 					<CoreMeta />
 				</PluginDocumentSettingPanel>
 				<PluginDocumentSettingPanel
-					name="retrieving-meta"
+					name="pods-meta"
+					title={ __( 'Pods Meta' ) }
+				>
+					<PodsMeta />
+				</PluginDocumentSettingPanel>
+				<PluginDocumentSettingPanel
+					name="ascf-meta"
 					title={ __( 'ASCF Meta' ) }
 				>
 					<AscfMeta />
