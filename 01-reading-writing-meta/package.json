@@ -1,8 +1,8 @@
 {
-	"name": "custom-bindings",
-	"version": "0.1.0",
-	"description": "Example block scaffolded with Create Block tool.",
-	"author": "The WordPress Contributors",
+	"name": "reading-writing-meta",
+	"version": "1.0.0",
+	"description": "In this exercise, we're going to learn the basics of reading and writing post meta in the block editor",
+	"author": "Ryan Welcher",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
