@@ -26,9 +26,11 @@ In this hands-on session, we’ll bridge the gap between traditional WordPress m
 
 ## 🧰 Prerequisites
 
-- A local WordPress development setup. This repository uses the `@wordpress/env` package which requires [Docker](https://www.docker.com/) to be installed.**There will be USB keys with available at the session that have copies of Studio that can be installed along with the session files.**
+- A local WordPress development setup. This repository uses the `@wordpress/env` package which requires [Docker](https://www.docker.com/) to be installed.
 - Some modern JavaScript experience. If you've built a custom block, you'll be fine 💪
 - You MUST laugh at all my jokes.
+
+**There will be USB keys with available at the session that have copies of Studio that can be installed along with the session files.**
 
 ## 🚀 Getting Started
 

@@ -5,12 +5,8 @@ import { registerPlugin } from '@wordpress/plugins';
 import { PluginDocumentSettingPanel } from '@wordpress/editor';
 import { __ } from '@wordpress/i18n';
 
-/**
- * Internal dependencies
- */
-import CoreMETA from './core-meta';
-import AscfMeta from './ascf-meta';
-import PodsMETA from './pods-meta';
+// List of registered meta for reference
+//'author_name', 'author_title', 'author_email', 'author_bio', 'author_favorite_color', 'author_birthday',
 
 /**
  * Register a SlotFill to the custom UI to the document settings panel.
@@ -20,22 +16,10 @@ registerPlugin( 'simple-metabox-replacement', {
 		return (
 			<>
 				<PluginDocumentSettingPanel
-					name="core-meta"
-					title={ __( 'Core meta', 'ccf' ) }
+					name="guest-author-meta"
+					title={ __( 'Guest Author', 'ccf' ) }
 				>
-					<CoreMETA />
-				</PluginDocumentSettingPanel>
-				<PluginDocumentSettingPanel
-					name="pods-meta"
-					title={ __( 'Pods meta', 'ccf' ) }
-				>
-					<PodsMETA />
-				</PluginDocumentSettingPanel>
-				<PluginDocumentSettingPanel
-					name="ascf-meta"
-					title={ __( 'ASCF meta', 'ccf' ) }
-				>
-					<AscfMeta />
+					<p>The UI will go here</p>
 				</PluginDocumentSettingPanel>
 			</>
 		);

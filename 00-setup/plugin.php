@@ -253,3 +253,111 @@ function register_my_pods_config_93319791() {
 
 }
 add_action( 'init', 'register_my_pods_config_93319791' );
+
+
+// Register a Classic Meta box
+add_action(
+	'add_meta_boxes',
+	function ( $post_type ) {
+		// Register the meta box.
+		if ( 'post' === $post_type ) {
+			add_meta_box(
+				'some_meta_box_name',
+				__( 'Guest Author' ),
+				'render_meta_box_content',
+				$post_type,
+				'side'
+			);
+		}
+	}
+);
+
+/**
+ * Render the meta box in the admin,
+ *
+ * @param object $post The post being saved.
+ */
+function render_meta_box_content( $post ) {
+	// Add an nonce field so we can check for it later.
+	wp_nonce_field( 'classic_meta_box_approach', 'classic_meta_box_approach_nonce' );
+
+	// Use get_post_meta to retrieve an existing value from the database.
+	$author_name  = get_post_meta( $post->ID, 'author_name', true );
+	$author_email = get_post_meta( $post->ID, 'author_email', true );
+	$author_title = get_post_meta( $post->ID, 'author_title', true );
+	$author_bio   = get_post_meta( $post->ID, 'author_bio', true );
+
+	// Display the form.
+	?>
+	<label for="guest_author_name">
+		<?php esc_html_e( 'Name' ); ?>
+		<input type="text" id="guest_author_name" name="guest_author_name" class="widefat" value="<?php echo esc_attr( $author_name ); ?>" size="25" />
+	</label><br/><br/>
+	<label for="guest_author_email">
+		<?php esc_html_e( 'Email' ); ?>
+		<input type="email" id="guest_author_email" name="guest_author_email" class="widefat" value="<?php echo esc_attr( $author_email ); ?>" size="25" />
+	</label><br/><br/>
+	<label for="guest_author_title">
+		<?php esc_html_e( 'Title' ); ?>
+		<input type="text" id="guest_author_title" name="guest_author_title" class="widefat" value="<?php echo esc_attr( $author_title ); ?>" size="25" />
+	</label><br/><br/>
+	<label for="guest_author_bio">
+		<?php esc_html_e( 'Biography' ); ?>
+		<textarea id="guest_author_bio" name="guest_author_bio" class="widefat" rows="5"><?php echo esc_textarea( $author_bio ); ?></textarea>
+	</label>
+
+	<?php
+}
+
+// Manage saving the meta box.
+add_action(
+	'save_post',
+	function ( $post_id ) {
+		if ( ! isset( $_POST['classic_meta_box_approach_nonce'] ) ) {
+			return $post_id;
+		}
+
+		// Verify that the nonce is valid.
+		if ( ! wp_verify_nonce( sanitize_key( $_POST['classic_meta_box_approach_nonce'] ), 'classic_meta_box_approach' ) ) {
+			return $post_id;
+		}
+
+		/*
+		 * If this is an autosave, our form has not been submitted,
+		 * so we don't want to do anything.
+		 */
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return $post_id;
+		}
+
+		// Check the user's permissions.
+		if ( isset( $_POST['post_type'] ) && 'page' === $_POST['post_type'] ) {
+			if ( ! current_user_can( 'edit_page', $post_id ) ) {
+				return $post_id;
+			}
+		} else {
+			if ( ! current_user_can( 'edit_post', $post_id ) ) {
+				return $post_id;
+			}
+		}
+
+		// Update the meta field.
+		// Sanitize the user input.
+		$new_author_name  = isset( $_POST['guest_author_name'] ) ? sanitize_text_field( wp_unslash( $_POST['guest_author_name'] ) ) : false;
+		$new_author_email = isset( $_POST['guest_author_email'] ) ? sanitize_text_field( wp_unslash( $_POST['guest_author_email'] ) ) : false;
+		$new_author_title = isset( $_POST['guest_author_title'] ) ? sanitize_text_field( wp_unslash( $_POST['guest_author_title'] ) ) : false;
+		$new_author_bio   = isset( $_POST['guest_author_bio'] ) ? sanitize_text_field( wp_unslash( $_POST['guest_author_bio'] ) ) : false;
+		if ( $new_author_name ) {
+			update_post_meta( $post_id, 'author_name', $new_author_name );
+		}
+		if ( $new_author_email ) {
+			update_post_meta( $post_id, 'author_email', $new_author_email );
+		}
+		if ( $new_author_title ) {
+			update_post_meta( $post_id, 'author_title', $new_author_title );
+		}
+		if ( $new_author_bio ) {
+			update_post_meta( $post_id, 'author_bio', $new_author_bio );
+		}
+	}
+);
