@@ -1,2 +1,11 @@
+# Generated stuff
 node_modules
 build
+vendor
+package-lock.json
+composer.lock
+# Folders to ignore
+to-delete
+pods
+secure-custom-fields
+

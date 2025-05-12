@@ -18,8 +18,8 @@ In this hands-on session, we’ll bridge the gap between traditional WordPress m
 
 ## 🔍 What You'll Learn
 
-- ✅ Reading and writing custom meta using WordPress Core APIs (`register_meta`, `get_post_meta`, etc.)
-- 🛠️ Building alternative user interfaces for managing meta fields
+- ✅ Reading and writing custom meta using WordPress Core APIs.
+- 🛠️ Building alternative user interfaces for managing meta fields.
 - 🔌 Integrating popular frameworks like **Advanced Custom Fields (ACF)**, **Secure Custom Fields (SCF)**, and **Pods**
 - 🔗 Connecting Core Gutenberg blocks to custom meta fields for a seamless editorial experience
 - 🧩 Using **CustomBlock Bindings** to dynamically bind native blocks to meta data
@@ -59,7 +59,10 @@ Each exercise includes setup instructions, code examples, and explainer notes.
 ## 📚 Resources
 
 - [WordPress Developer Handbook](https://developer.wordpress.org/)
-- [Block Editor (Gutenberg) Handbook](https://developer.wordpress.org/block-editor/)
+- [Block Editor Handbook](https://developer.wordpress.org/block-editor/)
+- [SlotFills Reference](https://developer.wordpress.org/block-editor/reference-guides/slotfills/)
+- [@wordpress/components](https://developer.wordpress.org/block-editor/reference-guides/components/)
+- [Gutenberg Storybook](https://wordpress.github.io/gutenberg/?path=/docs/docs-introduction--page)
 
 ## 🤝 Contributing
 

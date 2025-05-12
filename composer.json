@@ -1,0 +1,23 @@
+{
+  "name": "ryanwelcher/connecting-custom-fields",
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "*",
+    "squizlabs/php_codesniffer": "^3.6",
+    "wp-coding-standards/wpcs": "^3.0",
+    "automattic/vipwpcs": "^3.0",
+    "phpcompatibility/phpcompatibility-wp": "*"
+  },
+  "scripts": {
+    "lint": "./vendor/bin/phpcs --standard=phpcs.xml -n"
+  },
+  "config": {
+    "platform": {
+      "php": "7.4"
+    },
+    "allow-plugins": {
+      "squizlabs/php_codesniffer": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "wp-coding-standards/wpcs": true
+    }
+  }
+}

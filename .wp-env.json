@@ -1,9 +1,8 @@
 {
-  "core": null,
-  "plugins": ["./custom-bindings", "./retrieving-data"],
-  "mappings": {
-    "wp-content/plugins/pods": "https://downloads.wordpress.org/plugin/pods.zip",
-    "wp-content/plugins/secure-custom-fields": "https://downloads.wordpress.org/plugin/secure-custom-fields.zip",
-    "wp-content/plugins/advanced-custom-fields": "https://downloads.wordpress.org/plugin/advanced-custom-fields.zip"
-  }
+	"core": null,
+	"plugins": ["./00-setup", " 01-reading-writing-meta", "./custom-bindings"],
+	"mappings": {
+		"wp-content/plugins/pods": "https://downloads.wordpress.org/plugin/pods.zip",
+		"wp-content/plugins/secure-custom-fields": "https://downloads.wordpress.org/plugin/secure-custom-fields.zip"
+	}
 }
