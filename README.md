@@ -1,9 +1,13 @@
 # Connecting Custom Fields from Meta Boxes to Blocks and Beyond
 
 **Workshop at WordCamp Lisboa 2025**
+
 📅 **Date:** May 17, 2025
+
 📍 **Lisbon, Portugal**
+
 🎤 **Speaker:** Ryan Welcher
+
 🔗 **Session Details:** [WordCamp Lisboa 2025 Schedule](https://lisboa.wordcamp.org/2025/session/connecting-custom-fields-from-meta-boxes-to-blocks-and-beyond/)
 
 ## Overview
