@@ -26,9 +26,9 @@ In this hands-on session, we’ll bridge the gap between traditional WordPress m
 
 ## 🧰 Prerequisites
 
-- A local WordPress development setup (e.g., Local, XAMPP, etc.)
-- Basic knowledge of PHP and JavaScript (React familiarity is helpful but not required)
-- Some experience with WordPress theme or plugin development
+- A local WordPress development setup. This repository uses the `@wordpress/env` package which requires [Docker](https://www.docker.com/) to be installed.**There will be USB keys with available at the session that have copies of Studio that can be installed along with the session files.**
+- Some modern JavaScript experience. If you've built a custom block, you'll be fine 💪
+- You MUST laugh at all my jokes.
 
 ## 🚀 Getting Started
 
@@ -52,7 +52,7 @@ In this hands-on session, we’ll bridge the gap between traditional WordPress m
 - **02 – Building Custom UIs for Meta Fields**
 - **03 – Integrating with ACF / SCF / Pods**
 - **04 – Binding Core Blocks to Meta**
-- **05 – Block Bindings in Action**
+- **05 – Custom Block Bindings in Action**
 
 Each exercise includes setup instructions, code examples, and explainer notes.
 
