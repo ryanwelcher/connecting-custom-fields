@@ -5,7 +5,8 @@ vendor
 package-lock.json
 composer.lock
 # Folders to ignore
-to-delete
+00 - holding-tank
 pods
+pods-export-code-master
 secure-custom-fields
 
