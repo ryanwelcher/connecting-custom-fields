@@ -1,7 +1,3 @@
-Absolutely — here’s the revised README with the repository structure section removed:
-
----
-
 # Connecting Custom Fields from Meta Boxes to Blocks and Beyond
 
 **Workshop at WordCamp Lisboa 2025**
@@ -69,7 +65,3 @@ Found a bug or have an improvement? Pull requests and issues are welcome!
 
 🧡 **Thanks for attending WordCamp Lisboa 2025!**
 Feel free to fork this repo and use it as a starter for your own projects.
-
----
-
-Would you like help adding example code snippets for any of the workshop sections?
