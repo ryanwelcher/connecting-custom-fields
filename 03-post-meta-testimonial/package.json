@@ -1,0 +1,21 @@
+{
+	"name": "post-meta-testimonial",
+	"version": "1.0.3",
+	"description": "Create a testimonial block that stores its content in post meta.",
+	"author": "The WordPress Contributors",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build --blocks-manifest",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"start": "wp-scripts start --blocks-manifest"
+	},
+	"prettier": "@wordpress/prettier-config",
+	"devDependencies": {
+		"@wordpress/scripts": "^30.16.0"
+	}
+}

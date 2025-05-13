@@ -5,10 +5,10 @@ import { registerBlockVariation } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 
 registerBlockVariation( 'core/paragraph', {
-	name: 'wc-lisboa/ascf-binding',
-	title: __( 'ASCF Block Binding', 'wc-lisboa' ),
+	name: 'ccf/ascf-binding',
+	title: __( 'ASCF Block Binding', 'ccf' ),
 	icon: 'text',
-	description: __( 'Preset a message binding from ASCF', 'wc-lisboa' ),
+	description: __( 'Preset a message binding from ASCF', 'ccf' ),
 	isActive: [
 		'metadata.bindings.content.source',
 		'metadata.bindings.content.args.key',
@@ -30,10 +30,10 @@ registerBlockVariation( 'core/paragraph', {
 } );
 
 registerBlockVariation( 'core/paragraph', {
-	name: 'wc-lisboa/pods-binding',
-	title: __( 'Pods Block Binding', 'wc-lisboa' ),
+	name: 'ccf/pods-binding',
+	title: __( 'Pods Block Binding', 'ccf' ),
 	icon: 'text',
-	description: __( 'Preset a message binding from Pods', 'wc-lisboa' ),
+	description: __( 'Preset a message binding from Pods', 'ccf' ),
 	isActive: [
 		'metadata.bindings.content.source',
 		'metadata.bindings.content.args.field',

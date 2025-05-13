@@ -1,7 +1,6 @@
 <?php
 /**
- * Plugin Name: Custom Block Bindings
- * Description: Code to demonstrate custom bindings
+ * Plugin Name: 05 – Custom Block Bindings in Action
  */
 
 // Enqueue the JS we need to add Block Editor support for the various frameworks.
