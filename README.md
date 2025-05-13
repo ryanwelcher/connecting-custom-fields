@@ -52,7 +52,7 @@ In this hands-on session, we’ll bridge the gap between traditional WordPress m
 
 - **01 – Reading/Writing Meta with Core APIs**
 - **02 – Building Custom UIs for Meta Fields**
-- **03 – Integrating with ACF / SCF / Pods**
+- **03 – A Custom Block that Writes to Meta**
 - **04 – Binding Core Blocks to Meta**
 - **05 – Custom Block Bindings in Action**
 
