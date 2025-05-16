@@ -1,9 +1,10 @@
 /**
  * WordPress dependencies
  */
-import apiFetch from '@wordpress/api-fetch';
-import { registerBlockBindingsSource } from '@wordpress/blocks';
-import { debounce } from '@wordpress/compose';
+import {
+	registerBlockBindingsSource,
+	registerBlockVariation,
+} from '@wordpress/blocks';
 import { store as coreDataStore } from '@wordpress/core-data';
 import { _x } from '@wordpress/i18n';
 
@@ -35,35 +36,30 @@ registerBlockBindingsSource( {
 	},
 	canUserEditValue( { select, context, args } ) {
 		return true;
-		const postType =
-			context?.postType || select( editorStore ).getCurrentPostType();
-
-		// Check that editing is happening in the post editor and not a template.
-		if ( postType === 'wp_template' ) {
-			return false;
-		}
-
-		// Check that the custom field is not protected and available in the REST API.
-		const isFieldExposed = !! select( coreDataStore ).getEntityRecord(
-			'postType',
-			postType,
-			context?.postId
-		)?.[ args?.key ];
-
-		if ( ! isFieldExposed ) {
-			return false;
-		}
-
-		// Check that the user has the capability to edit post meta.
-		const canUserEdit = select( coreDataStore ).canUserEditEntityRecord(
-			'postType',
-			context?.postType,
-			context?.postId
-		);
-		if ( ! canUserEdit ) {
-			return false;
-		}
-
-		return true;
 	},
+} );
+
+registerBlockVariation( 'core/paragraph', {
+	name: 'ccf/pods-binding',
+	title: __( 'Pods Block Binding', 'ccf' ),
+	icon: 'text',
+	description: __( 'Preset a message binding from Pods', 'ccf' ),
+	isActive: [
+		'metadata.bindings.content.source',
+		'metadata.bindings.content.args.field',
+	],
+	attributes: {
+		content: 'Pods bindings will go here',
+		metadata: {
+			bindings: {
+				content: {
+					source: 'pods/bindings-field',
+					args: {
+						field: 'pods_message',
+					},
+				},
+			},
+		},
+	},
+	scope: [ 'inserter' ],
 } );

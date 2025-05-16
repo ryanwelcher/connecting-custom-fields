@@ -6,8 +6,9 @@ module.exports = {
 	...defaultConfig,
 	entry: {
 		...defaultConfig.entry(),
-		ascf: './src/ascf-bindings.js',
-		pods: './src/pods-bindings.js',
+		ascf: './extra/ascf-bindings.js',
+		pods: './extra/pods-bindings.js',
+		custom: './src/custom-bindings.js',
 		variations: './src/variations.js',
 	},
 };

@@ -2,7 +2,10 @@
  * WordPress dependencies
  */
 import apiFetch from '@wordpress/api-fetch';
-import { registerBlockBindingsSource } from '@wordpress/blocks';
+import {
+	registerBlockBindingsSource,
+	registerBlockVariation,
+} from '@wordpress/blocks';
 import { debounce } from '@wordpress/compose';
 import { store as coreDataStore } from '@wordpress/core-data';
 import { _x } from '@wordpress/i18n';
@@ -43,4 +46,32 @@ registerBlockBindingsSource( {
 	canUserEditValue( { select, context, args } ) {
 		return true;
 	},
+} );
+
+/**
+ * Register a block variation.
+ */
+registerBlockVariation( 'core/paragraph', {
+	name: 'ccf/ascf-binding',
+	title: __( 'ASCF Block Binding', 'ccf' ),
+	icon: 'text',
+	description: __( 'Preset a message binding from ASCF', 'ccf' ),
+	isActive: [
+		'metadata.bindings.content.source',
+		'metadata.bindings.content.args.key',
+	],
+	attributes: {
+		placeholder: 'A/S Custom Fields binding will go here',
+		metadata: {
+			bindings: {
+				content: {
+					source: 'acf/field',
+					args: {
+						key: 'ascf_message',
+					},
+				},
+			},
+		},
+	},
+	scope: [ 'inserter' ],
 } );
