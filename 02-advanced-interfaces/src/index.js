@@ -43,7 +43,7 @@ registerPlugin( 'advanced-uis', {
 		return (
 			<>
 				<PluginPostStatusInfo>
-					{ /* <DropdownExample meta={ meta } setMeta={ setMeta } /> */ }
+					<DropdownExample meta={ meta } setMeta={ setMeta } />
 				</PluginPostStatusInfo>
 				<PluginSidebar name="tools-panel-ui" icon="businessperson">
 					<ToolsPanelExample meta={ meta } setMeta={ setMeta } />
