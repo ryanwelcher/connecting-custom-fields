@@ -67,7 +67,7 @@ registerBlockVariation( 'core/paragraph', {
 				content: {
 					source: 'acf/field',
 					args: {
-						key: 'ascf_message',
+						key: 'message',
 					},
 				},
 			},

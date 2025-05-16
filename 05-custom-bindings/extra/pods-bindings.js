@@ -6,12 +6,7 @@ import {
 	registerBlockVariation,
 } from '@wordpress/blocks';
 import { store as coreDataStore } from '@wordpress/core-data';
-import { _x } from '@wordpress/i18n';
-
-/**
- * Internal dependencies
- */
-import { store as editorStore } from '@wordpress/block-editor';
+import { _x, __ } from '@wordpress/i18n';
 
 registerBlockBindingsSource( {
 	name: 'pods/bindings-field',
